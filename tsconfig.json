@@ -8,6 +8,12 @@
     },
     {
       "path": "./apps/Monorepo"
+    },
+    {
+      "path": "./apps/my-react-app"
+    },
+    {
+      "path": "./shared-ui"
     }
   ]
 }

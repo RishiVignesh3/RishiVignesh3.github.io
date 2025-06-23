@@ -1,18 +1,12 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
 
 export default defineConfig(() => ({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/Monorepo',
-  resolve: {
-    alias: {
-      '@shared-ui': path.resolve(__dirname, '../../shared-ui/src'),
-    },
-  },
+  cacheDir: '../../node_modules/.vite/apps/my-react-app',
   server: {
-    port: 4200,
+    port: 4300,
     host: 'localhost',
   },
   preview: {
