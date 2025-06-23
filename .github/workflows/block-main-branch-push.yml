@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: Fail if push is not from a PR
         run: |
-          echo "Direct push to main is not allowed."
+          echo "Direct push to main is not allowed. Heheee"
           exit 1
