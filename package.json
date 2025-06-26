@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "deployss": "pnpm nx build Monorepo && gh-pages -d apps/Monorepo/dist"
+    "deployss": "pnpm nx build Monorepo && gh-pages -d dist/apps/Monorepo",
+    "format": "prettier --write \"{apps,libs}/**/*.{ts,tsx,js,jsx,json,css,scss,md}\""
+
   },
   "private": true,
   "dependencies": {
