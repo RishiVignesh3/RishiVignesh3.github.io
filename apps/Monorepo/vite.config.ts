@@ -25,7 +25,7 @@ export default defineConfig(() => ({
   //  plugins: [ nxViteTsPaths() ],
   // },
   build: {
-    outDir: './dist',
+    outDir: '../../dist/apps/Monorepo',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
