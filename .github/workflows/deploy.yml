@@ -1,0 +1,37 @@
+name: Deploy My App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/Monorepo/**'  # Trigger only if files in the app change
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'  # Adjust based on your app's requirements
+
+      - name: Install dependencies
+        run: |
+          cd apps/Monorepo
+          npm ci  # or npm install
+
+      - name: Build project
+        run: |
+          cd apps/Monorepo
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: apps/Monorepo/dist  # or 'build' depending on your framework
