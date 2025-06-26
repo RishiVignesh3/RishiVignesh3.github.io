@@ -1,11 +1,16 @@
-name: Deploy My App to GitHub Pages
+name: Deploy NX App to GitHub Pages
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'apps/Monorepo/**'  # Trigger only if files in the app change
+      - 'apps/Monorepo/**'
+      - 'libs/**'
+      - 'nx.json'
+      - 'project.json'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
 
 jobs:
   deploy:
@@ -15,23 +20,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'  # Adjust based on your app's requirements
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
-        run: |
-          cd apps/Monorepo
-          npm ci  # or npm install
+        run: pnpm install
 
-      - name: Build project
-        run: |
-          cd apps/Monorepo
-          npm run build
+      - name: Build NX app
+        run: pnpm nx build Monorepo
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: apps/Monorepo/dist  # or 'build' depending on your framework
+          publish_dir: dist/apps/Monorepo
