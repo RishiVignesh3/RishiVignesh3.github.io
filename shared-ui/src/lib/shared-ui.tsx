@@ -8,7 +8,7 @@ export function SharedUi() {
         <span role="img" aria-label="smiling face with smiling eyes">
           😊
         </span>
-        !!!
+        !
       </h1>
       <h1>Welcome to SharedUi!</h1>
     </div>
