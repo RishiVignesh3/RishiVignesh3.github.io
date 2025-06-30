@@ -5,10 +5,10 @@
   "scripts": {
     "deployss": "pnpm nx build Monorepo && gh-pages -d dist/apps/Monorepo",
     "format": "prettier --write \"{apps,libs}/**/*.{ts,tsx,js,jsx,json,css,scss,md}\""
-
   },
   "private": true,
   "dependencies": {
+    "framer-motion": "^12.19.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "6.29.0"
