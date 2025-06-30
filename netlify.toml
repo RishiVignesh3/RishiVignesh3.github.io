@@ -1,6 +1,6 @@
 [build]
   # Your build command - runs in root, builds your app in the monorepo
-  command = "pnpm nx build Monorepo"
+  command = "pnpm nx build Monorepo --skip-nx-cache"
   
   # Publish directory is the output folder relative to repo root
   publish = "dist/apps/Monorepo"
